@@ -1,0 +1,34 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+    <h1 class="mt-5">Company List</h1>
+      {% if comp_list %}
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">TaxId</th>
+                <th scope="col">Category</th>
+                <th scope="col">Chairman</th>
+                <th scope="col">Address</th>
+                <th scope="col">CreateBy</th>
+                <th scope="col">CreateDate</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for company in comp_list %}
+            <tr>
+                <td><a href="#"> {{ company.comp_name }}</a></td>
+                <td>{{ company.comp_taxid }}</td>
+                <td>{{ company.comp_catgo }}</td>
+                <td>{{ company.comp_leader }}</td>
+                <td>{{ company.comp_address }}</td>
+                <td>{{ company.create_by}}</td>
+                <td>{{ company.create_date}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+          <p>No company are available.</p>
+      {% endif %}
+{% endblock %}
