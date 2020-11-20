@@ -1,8 +1,9 @@
 {% extends 'contacts/base.html' %}
 {% block content %}
     <h1 class="mt-5">Company List</h1>
+    <div class="container"><a href="add/" class="btn btn-primary">Add</a></div>
       {% if comp_list %}
-        <table class="table table-hover table-responsive">
+        <table class="table table-hover table-responsive-xl">
           <thead>
             <tr>
                 <th scope="col">Name</th>
