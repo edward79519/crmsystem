@@ -1,4 +1,7 @@
 {% extends 'contacts/base.html' %}
+
+{% block title %}Company List{% endblock %}
+
 {% block content %}
     <h1 class="mt-5">Company List</h1>
     <div class="container">
@@ -27,7 +30,7 @@
               <tbody>
               {% for company in comp_list %}
                 <tr>
-                    <td><a href="#"> {{ company.comp_name }}</a></td>
+                    <td><a href="{{ company.pk}}"> {{ company.comp_name }}</a></td>
                     <td>{{ company.comp_taxid }}</td>
                     <td>{{ company.comp_catgo }}</td>
                     <td>{{ company.comp_leader }}</td>

@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import Company, Employee
 from .form import CompanyModelForm, EmployeeModelForm
 
@@ -43,3 +43,15 @@ def emp_add(request):
         'form': form,
     }
     return HttpResponse(template.render(context, request))
+
+def comp_detail(request, company_id):
+    company = get_object_or_404(Company, pk=company_id)
+    employee = Employee.objects.filter(emp_comp = company_id)
+    context = {
+        'company': company,
+        'employee': employee,
+    }
+    return render(request, 'contacts/comp_detail.html', context)
+
+def emp_detail(request, employee_id):
+    return HttpResponse("You're looking at employee %s." % employee_id)

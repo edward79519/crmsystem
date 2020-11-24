@@ -1,0 +1,46 @@
+{% extends 'contacts/base.html' %}
+{% block title%}{{ company }} - Detail {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-5">{{ company.comp_name }}</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <h3>Basic Info</h3>
+            <table class="table table-borderless">
+                <tbody>
+                    <tr><td>統一編號</td><td>{{ company.comp_taxid }}</td></tr>
+                    <tr><td>負責人</td><td>{{ company.comp_leader }}</td></tr>
+                    <tr><td>地址</td><td>{{ company.comp_address }}</td></tr>
+                    <tr><td>分類</td><td>{{ company.comp_catgo }}</td></tr>
+
+                </tbody>
+            </table>
+            <h3>Employee List</h3>
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th>姓名</th>
+                        <th>職位</th>
+                        <th>電話</th>
+                    </tr>
+                    {% for emp in employee %}
+                    <tr>
+                        <td>{{ emp.emp_name }}</td>
+                        <td>{{ emp.emp_title }}</td>
+                        <td>{{ emp.emp_tel }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
