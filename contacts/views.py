@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404
 from .models import Company, Employee
-from .form import CompanyModelForm
+from .form import CompanyModelForm, EmployeeModelForm
 
 def index(request):
     template = loader.get_template('contacts/index.html')
@@ -31,6 +31,14 @@ def employees(request):
 def comp_add(request):
     form = CompanyModelForm()
     template = loader.get_template('contacts/comp_form.html')
+    context = {
+        'form': form,
+    }
+    return HttpResponse(template.render(context, request))
+
+def emp_add(request):
+    form = EmployeeModelForm()
+    template = loader.get_template('contacts/emp_form.html')
     context = {
         'form': form,
     }

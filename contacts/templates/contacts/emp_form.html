@@ -1,62 +1,66 @@
 {% extends 'contacts/base.html' %}
 {% block content %}
 
-<h1 class="mt-5">Add Company</h1>
+<h1 class="mt-5">Add Employee</h1>
 <form class="was-validated">
     {% csrf_token %}
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="{{ form.comp_name.name }}">{{ form.comp_name.label }}</label>
-            {{ form.comp_name }}
+            <label for="{{ form.emp_name.name}}">{{ form.emp_name.label }}</label>
+            {{ form.emp_name }}
             <div class="invalid-feedback">
                 Please enter a Company Name.
             </div>
         </div>
-        <div class="col-md-4 mb-3">
-            <label for="{{ form.comp_taxid.name }}">{{ form.comp_taxid.label }}</label>
-            {{ form.comp_taxid }}
-            <div class="invalid-feedback">
-                Please enter a TaxID.
-            </div>
-        </div>
+
     </div>
+
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="{{ form.comp_catgo.name}}">{{ form.comp_catgo.label}}</label>
-            {{ form.comp_catgo }}
+            <label for="{{ form.emp_comp.name }}">{{ form.emp_comp.label }}</label>
+            {{ form.emp_comp }}
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="{{ form.emp_title.name}}">{{ form.emp_title.label }}</label>
+            {{ form.emp_title }}
             <div class="invalid-feedback">
-              Please enter Category.
+                Please select an Employee.
             </div>
         </div>
     </div>
+
     <div class="form-row">
-        <div class="col-md-3 mb-3">
-            <label for="{{ form.comp_leader.name }}">{{ form.comp_leader.label }}</label>
-            {{ form.comp_leader }}
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col-md-6 mb-3">
-            <label for="{{ form.comp_address.name }}">{{ form.comp_address.label }}</label>
-            {{ form.comp_address }}
+        <div class="col-md-4 mb-3">
+            <label for="{{ form.emp_tel.name }}">{{ form.emp_tel.label }}</label>
+            {{ form.emp_tel }}
             <div class="invalid-feedback">
-            Please enter a Address.
+                Please enter a phone number.
             </div>
         </div>
     </div>
+
     <div class="form-row">
-        <div class="col-md-3 mb-3">
+        <div class="col-md-4 mb-3">
+            <label for="{{ form.emp_email.name }}">{{ form.emp_email.label }}</label>
+            {{ form.emp_email }}
+            <div class="invalid-feedback">
+                Please enter an Email address.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
             <label for="{{ form.create_by.name }}">{{ form.create_by.label }}</label>
             {{ form.create_by }}
             <div class="invalid-feedback">
-            Please choose a user.
+                Please choose an user.
             </div>
         </div>
     </div>
+
     <input class="btn btn-outline-primary" type="reset" value="Reset">
     <button class="btn btn-primary" type="submit">Submit form</button>
-
 </form>
-
 
 {% endblock %}
