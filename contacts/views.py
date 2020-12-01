@@ -6,6 +6,7 @@ from django.template import loader
 from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import Company, Employee
 from .form import CompanyModelForm, EmployeeModelForm
+from .govcompinfo import Compinfor
 
 def index(request):
     template = loader.get_template('contacts/index.html')
@@ -47,9 +48,11 @@ def emp_add(request):
 def comp_detail(request, company_id):
     company = get_object_or_404(Company, pk=company_id)
     employee = Employee.objects.filter(emp_comp = company_id)
+    com_infor = Compinfor(50791838).getinfo()[0]
     context = {
         'company': company,
         'employee': employee,
+        'com_infor': com_infor,
     }
     return render(request, 'contacts/comp_detail.html', context)
 
