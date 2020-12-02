@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import Company, Employee
 from .form import CompanyModelForm, EmployeeModelForm
 from .govcompinfo import Compinfor
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     template = loader.get_template('contacts/index.html')
@@ -29,6 +30,8 @@ def employees(request):
     }
     return HttpResponse(template.render(context, request))
 
+
+@login_required
 def comp_add(request):
     form = CompanyModelForm()
     template = loader.get_template('contacts/comp_form.html')
@@ -37,6 +40,7 @@ def comp_add(request):
     }
     return HttpResponse(template.render(context, request))
 
+@login_required
 def emp_add(request):
     form = EmployeeModelForm()
     template = loader.get_template('contacts/emp_form.html')
