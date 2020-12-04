@@ -34,7 +34,7 @@
                     </tr>
                     {% for emp in employee %}
                     <tr>
-                        <td>{{ emp.emp_name }}</td>
+                        <td><a href="{% url 'EmployeeDetail' emp.id %}">{{ emp.emp_name }}</a></td>
                         <td>{{ emp.emp_title }}</td>
                         <td>{{ emp.emp_tel }}</td>
                     </tr>

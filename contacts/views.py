@@ -39,7 +39,7 @@ def comp_add(request):
         form = CompanyModelForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect("/companys")
+        return redirect("/contacts/company/")
     context = {
         'form': form,
     }
@@ -49,6 +49,11 @@ def comp_add(request):
 def emp_add(request):
     form = EmployeeModelForm()
     template = loader.get_template('contacts/emp_form.html')
+    if request.method == "POST":
+        form = EmployeeModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/contacts/employee/")
     context = {
         'form': form,
     }
@@ -93,6 +98,22 @@ def comp_update(request, company_id):
 
     return HttpResponse(template.render(context, request))
 
+@login_required
+def emp_update(request, employee_id):
+    employee = Employee.objects.get(pk=employee_id)
+    form = EmployeeModelForm(instance=employee)
+    template = loader.get_template('contacts/emp_update.html')
+    if request.method == "POST":
+        form = EmployeeModelForm(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+        return redirect("/contacts/employee/"+str(employee_id))
+    context = {
+        'form': form
+    }
+
+    return HttpResponse(template.render(context, request))
+
 # Delete
 @login_required
 def comp_delete(request, company_id):
@@ -105,5 +126,19 @@ def comp_delete(request, company_id):
 
     context = {
         'company': company
+    }
+    return HttpResponse(template.render(context, request))
+
+@login_required
+def emp_delete(request, employee_id):
+    employee = Employee.objects.get(pk=employee_id)
+    template = loader.get_template('contacts/emp_delete.html')
+
+    if request.method == "POST":
+        employee.delete()
+        return redirect("/contacts/employee/")
+
+    context = {
+        'employee': employee
     }
     return HttpResponse(template.render(context, request))

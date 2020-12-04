@@ -1,10 +1,9 @@
 {% extends 'contacts/base.html' %}
 
-{% block title %}AddEmployee{% endblock %}
-
+{% block title %}Update {{ form.emp_name.value }} {% endblock %}
 {% block content %}
 
-<h1 class="mt-5">Add Employee</h1>
+<h1 class="mt-5">Update {{ form.emp_name.value }} Detail</h1>
 <form class="was-validated" action="" method="POST">
     {% csrf_token %}
     <div class="form-row">
@@ -15,57 +14,56 @@
                 Please enter a Company Name.
             </div>
         </div>
-
     </div>
-
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="{{ form.emp_comp.name }}">{{ form.emp_comp.label }}</label>
             {{ form.emp_comp }}
+            <div class="invalid-feedback">
+                Please enter a TaxID.
+            </div>
         </div>
+    </div>
+    <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="{{ form.emp_title.name}}">{{ form.emp_title.label }}</label>
+            <label for="{{ form.emp_title.name}}">{{ form.emp_title.label}}</label>
             {{ form.emp_title }}
             <div class="invalid-feedback">
-                Please select an Employee.
+              Please enter Category.
             </div>
         </div>
     </div>
-
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="{{ form.emp_tel.name }}">{{ form.emp_tel.label }}</label>
+            <label for="{{ form.emp_tel.name}}">{{ form.emp_tel.label}}</label>
             {{ form.emp_tel }}
             <div class="invalid-feedback">
-                Please enter a phone number.
+              Please enter Category.
             </div>
         </div>
     </div>
-
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="{{ form.emp_email.name }}">{{ form.emp_email.label }}</label>
+            <label for="{{ form.emp_email.name}}">{{ form.emp_email.label}}</label>
             {{ form.emp_email }}
             <div class="invalid-feedback">
-                Please enter an Email address.
+              Please enter Category.
             </div>
         </div>
     </div>
-
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="{{ form.create_by.name }}">{{ form.create_by.label }}</label>
+            <label for="{{ form.create_by.name}}">{{ form.create_by.label}}</label>
             {{ form.create_by }}
             <div class="invalid-feedback">
-                Please choose an user.
+              Please enter Category.
             </div>
         </div>
     </div>
 
     <input class="btn btn-outline-primary" name="Submit" type="button" id="Submit" onClick="javascript:history.back(1)" value="Back"/>
     <input class="btn btn-outline-primary" type="reset" value="Reset">
-    <button class="btn btn-primary" type="submit">Submit form</button>
-
+    <button class="btn btn-primary" type="submit">Update</button>
 </form>
 
 {% endblock %}

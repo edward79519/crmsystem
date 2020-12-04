@@ -23,6 +23,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">CreateBy</th>
                 <th scope="col">CreateDate</th>
+                <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +36,10 @@
                 <td>{{ emp.emp_email }}</td>
                 <td>{{ emp.create_by}}</td>
                 <td>{{ emp.create_date}}</td>
+                <td>
+                    <a href="{% url 'EmployeeUpdate' emp.id %}" class="btn btn-outline-primary btn-sm" role="button">Edit</a>
+                    <a href="{% url 'EmployeeDelete' emp.id %}" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+                </td>
             </tr>
           {% endfor %}
           </tbody>

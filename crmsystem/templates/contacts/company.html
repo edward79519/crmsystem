@@ -39,8 +39,8 @@
                     <td>{{ company.create_by}}</td>
                     <td>{{ company.create_date}}</td>
                     <td>
-                        <a href="{% url 'CompanyUpdate' company.comp-taxid %}" class="btn btn-outline-primary btn-sm" role="button">Edit</a>
-                        <a href="#" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+                        <a href="{% url 'CompanyUpdate' company.comp_taxid %}" class="btn btn-outline-primary btn-sm" role="button">Edit</a>
+                        <a href="{% url 'CompanyDelete' company.comp_taxid %}" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
                     </td>
                 </tr>
               {% endfor %}
