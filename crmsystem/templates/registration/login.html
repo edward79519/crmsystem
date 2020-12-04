@@ -4,9 +4,10 @@
 
 {% block content %}
 
-<div class="container my-3 text-center">
+<div class="container my-3">
     <div class="row">
         <div class="col">
+            <h1 class="mt-5">Login</h1>
             {% if form.errors %}
                 <p>Your username and password didn't match. Please try again.</p>
             {% endif %}
@@ -51,9 +52,8 @@
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <p>
-                            <input class="btn btn-outline-primary" type="" value="Sign Up" >
-                            <input class="btn btn-outline-primary" type="submit" value="login">
-
+                            <input class="btn btn-primary" type="submit" value="LogIn">
+                            <a class="btn btn-secondary" href="#" role="button">SignUp</a>
                             <input class="btn btn-outline-primary" type="hidden" name="next" value="{{ next }}">
                             {# Assumes you setup the password_reset view in your URLconf #}
                             <a href="{% url 'password_reset' %}">Lost password?</a>

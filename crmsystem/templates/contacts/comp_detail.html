@@ -6,6 +6,8 @@
     <div class="row">
         <div class="col">
             <h1 class="mt-5">{{ company.comp_name }}</h1>
+            <a href=" {% url 'CompanyUpdate' company.comp_taxid %} " class="btn btn-outline-primary btn-sm" role="button">Edit</a>
+            <a href=" {% url 'CompanyDelete' company.comp_taxid %}" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
         </div>
     </div>
 </div>

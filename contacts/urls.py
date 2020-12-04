@@ -7,9 +7,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('company/', views.companys, name='Company'),
     path('company/add/', views.comp_add, name='Add Company'),
-    path('company/<int:company_id>/', views.comp_detail, name='Conpany Detail'),
+    path('company/<int:company_id>/', views.comp_detail, name='CompanyDetail'),
+    path('company/<int:company_id>/update/', views.comp_update, name="CompanyUpdate"),
+    path('company/<int:company_id>/delete/', views.comp_delete, name="CompanyDelete"),
     path('employee/', views.employees, name='Employee'),
-    path('employee/add/', views.emp_add, name='Add Employee'),
-    path('employee/<int:employee_id>/', views.emp_detail, name='Employee Detail'),
+    path('employee/add/', views.emp_add, name='AddEmployee'),
+    path('employee/<int:employee_id>/', views.emp_detail, name='EmployeeDetail'),
 ]
 

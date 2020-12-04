@@ -1,0 +1,31 @@
+{% extends 'contacts/base.html' %}
+{% block title%}{{ employee }} - Detail {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-5">{{ employee.emp_name }}</h1>
+            <a href="#" class="btn btn-outline-primary btn-sm" role="button">Edit</a>
+            <a href="#" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <h3>Basic Info</h3>
+            <table class="table table-borderless table-striped">
+                <tbody>
+                    <tr><td>公司</td><td><a href="{% url 'CompanyDetail' company.comp_taxid %}">{{ employee.emp_comp }}</a></td></tr>
+                    <tr><td>職稱</td><td>{{ employee.emp_title}}</td></tr>
+                    <tr><td>電話</td><td>{{ employee.emp_tel }}</td></tr>
+                    <tr><td>E-mail</td><td>{{ employee.emp_email }}</td></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

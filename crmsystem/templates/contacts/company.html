@@ -15,7 +15,7 @@
     <div class="container">
 
           {% if comp_list %}
-            <table class="table table-hover table-responsive-xl">
+            <table class="table table-hover table-responsive-xl text-nowrap">
               <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -25,18 +25,23 @@
                     <th scope="col">Address</th>
                     <th scope="col">CreateBy</th>
                     <th scope="col">CreateDate</th>
+                    <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
               {% for company in comp_list %}
                 <tr>
-                    <td><a href="{{ company.pk}}"> {{ company.comp_name }}</a></td>
+                    <td><a href="{{ company.pk }}"> {{ company.comp_name }}</a></td>
                     <td>{{ company.comp_taxid }}</td>
                     <td>{{ company.comp_catgo }}</td>
                     <td>{{ company.comp_leader }}</td>
                     <td>{{ company.comp_address }}</td>
                     <td>{{ company.create_by}}</td>
                     <td>{{ company.create_date}}</td>
+                    <td>
+                        <a href="{% url 'CompanyUpdate' company.comp-taxid %}" class="btn btn-outline-primary btn-sm" role="button">Edit</a>
+                        <a href="#" class="btn btn-outline-danger btn-sm" role="button">Delete</a>
+                    </td>
                 </tr>
               {% endfor %}
               </tbody>

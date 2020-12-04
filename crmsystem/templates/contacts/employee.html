@@ -28,7 +28,7 @@
           <tbody>
           {% for emp in emp_list %}
             <tr>
-                <td><a href="#"> {{ emp.emp_name }}</a></td>
+                <td><a href="{% url 'EmployeeDetail' emp.id %}"> {{ emp.emp_name }}</a></td>
                 <td>{{ emp.emp_comp }}</td>
                 <td>{{ emp.emp_title }}</td>
                 <td>{{ emp.emp_tel }}</td>

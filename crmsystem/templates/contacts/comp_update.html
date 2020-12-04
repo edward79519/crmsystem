@@ -1,9 +1,9 @@
 {% extends 'contacts/base.html' %}
 
-{% block title %}Add Company{% endblock %}
+{% block title %}Update Company Detail{% endblock %}
 {% block content %}
 
-<h1 class="mt-5">Add Company</h1>
+<h1 class="mt-5">Update {{ form.comp_name.value }} Detail</h1>
 <form class="was-validated" action="" method="POST">
     {% csrf_token %}
     <div class="form-row">
@@ -14,13 +14,15 @@
                 Please enter a Company Name.
             </div>
         </div>
-        <div class="col-md-4 mb-3">
+
+        <div class="col-md-4 mb-3" style="display:none">
             <label for="{{ form.comp_taxid.name }}">{{ form.comp_taxid.label }}</label>
             {{ form.comp_taxid }}
             <div class="invalid-feedback">
                 Please enter a TaxID.
             </div>
         </div>
+
     </div>
     <div class="form-row">
         <div class="col-md-4 mb-3">
@@ -55,8 +57,9 @@
             </div>
         </div>
     </div>
+
+    <button class="btn btn-primary" type="submit">Update</button>
     <input class="btn btn-outline-primary" type="reset" value="Reset">
-    <button class="btn btn-primary" type="submit">Submit form</button>
 
 </form>
 
